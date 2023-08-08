@@ -1,0 +1,711 @@
+@use 'variables'
+@use 'mixins'
+    
+html
+    @include mixins.xs
+        scroll-padding-top: 8.75rem
+    @include mixins.mobile
+        scroll-padding-top: 1.2rem
+
+    scroll-behavior: smooth
+    scroll-padding-top: 6.5rem
+
+*
+    font-family: Poppins
+    padding: 0
+    margin: 0
+    box-sizing: border-box
+    -moz-box-sizing: border-box
+
+    &:before, &:after
+        box-sizing: inherit
+
+
+body
+    background: variables.$bg-primary
+    color: variables.$text-primary
+
+    a
+        color: variables.$text-primary
+        text-decoration: none
+        transition: .2s
+
+    i
+        color: variables.$text-secondary
+        transition: .2s
+
+    ul
+        list-style: none
+
+    h2
+        text-transform: uppercase
+
+.header
+    @include mixins.sm
+        justify-content: space-around
+    @include mixins.mobile
+        padding: 1.1rem
+        padding-left: .2rem
+        padding-bottom: .5rem
+        position: relative
+
+    position: fixed
+    background: variables.$disable
+    border-bottom: 1px solid variables.$gold
+    overflow: hidden
+    top: 0
+    width: 100%
+    display: flex
+    justify-content: space-between
+    align-items: center
+    font-weight: 400
+    padding: .6rem
+    padding-bottom: 0
+    -webkit-backdrop-filter: blur(3px)
+    backdrop-filter: blur(3px)
+    z-index: 1
+
+    &-brand // .header-brand
+        color: variables.$gold
+        padding-bottom: .1rem
+
+        img
+            width: auto
+            height: 4rem
+            -webkit-filter: drop-shadow(-5px 5px 3px variables.$gold-shadow)
+            filter: drop-shadow(0px 0px 10px variables.$gold-shadow)
+
+            &:hover
+                -webkit-filter: drop-shadow(-5px 5px 3px variables.$gold-glow)
+                filter: brightness(1.16) saturate(1.02) drop-shadow(0px 0px 10px variables.$gold-glow)
+            
+    
+    &-navbar // .header-navbar
+
+        ul
+            @include mixins.flex-center
+
+            @include mixins.mobile
+                display: none
+            
+            height: 90%
+
+            li
+                @include mixins.xl
+                    font-size: 135%
+                @include mixins.sm
+                    margin: 0 .8rem
+                    font-size: 1rem
+                @include mixins.xs
+                    display: none
+
+                margin: 0 1rem
+                text-transform: uppercase
+                font-size: 1.1rem
+                
+                a
+                    @include mixins.sm
+                        flex-direction: column
+                        display: flex
+                        align-items: center
+
+                    &:hover
+                        color: variables.$gold-hover
+
+                        i
+                            color: variables.$gold-hover
+                
+                i
+                    @include mixins.sm
+                        font-size: 1.2rem
+
+    &-social-media // .header-social-media
+
+        ul
+            @include mixins.flex-center
+            height: 90%
+
+            @include mixins.sm
+                display: none
+
+            li
+                @include mixins.xl
+                    font-size: 135%
+                margin: 0 1rem
+                font-size: 1.1rem
+
+                a
+                    &:hover
+                        -webkit-filter: drop-shadow(-5px 5px 3px variables.$text-glow)
+                        filter: drop-shadow(0px 0px 10px variables.$text-glow)
+
+                i
+
+                    &:hover
+                        color: variables.$text-primary
+    
+    &-menu
+        @include mixins.xs
+            display: flex
+
+        color: variables.$text-secondary
+        display: none
+        flex-direction: column
+        justify-content: center
+        padding-bottom: .8rem
+
+        .navbar
+            @include mixins.xs
+                display: flex
+
+            display: none
+            float: none
+            text-align: right
+            
+            a
+                &:hover
+                        color: variables.$gold-hover
+
+                        i
+                            color: variables.$gold-hover
+
+.main
+    @include mixins.flex-center
+    @include mixins.container
+    
+    display: flex
+    text-align: center
+
+    &-text
+        @include mixins.lg
+            margin: 7rem
+            margin-top: 10rem
+            padding: 0
+        @include mixins.md
+            margin: 5rem
+            margin-top: 8rem
+        @include mixins.sm
+            margin: 4rem
+            margin-top: 8rem
+        @include mixins.xs
+            margin: 2rem
+            margin-top: 10rem
+            margin-inline: 1rem
+        @include mixins.mobile
+            margin: 2rem
+            margin-inline: .8rem
+        @include mixins.mobile
+            margin: 0
+            margin-top: 5rem
+            margin-bottom: 7rem
+
+        font-weight: 400
+        margin: 10rem
+
+        h2
+            @include mixins.xl
+                font-size: 300%
+                max-width: none
+                padding: 0
+            @include mixins.sm
+                font-size: 2rem
+                padding: 0
+            @include mixins.mobile
+                font-size: 1.8rem
+
+            max-width: 45rem
+            margin: 0 auto
+            font-weight: 600
+            font-size: 2.3rem
+            padding-inline: 3rem
+            margin-bottom: .8rem
+        
+        p
+            @include mixins.xl
+                font-size: 200%
+                max-width: none
+                padding: 0
+            @include mixins.sm
+                font-size: 1.4rem
+            @include mixins.xs
+                font-size: 1.2rem
+            @include mixins.mobile
+                margin-bottom: 3rem
+
+            max-width: 45rem
+            margin: 0 auto
+            font-size: 1.5rem
+            margin-bottom: 2rem
+            color: variables.$text-secondary
+        
+        .link-buttons
+            @include mixins.xl
+                font-size: 135%
+            @include mixins.md
+                flex-direction: column
+                display: inline-flex
+
+            display: inline
+            flex-direction: row
+
+            a
+                @include mixins.md
+                    padding: .8rem 2rem
+                    margin-bottom: 1.5rem
+                @include mixins.xs
+                    padding: .8rem 1rem
+
+                display: inline-block
+                text-align: center
+                width: 100%
+                max-width: 300px
+                padding: .8rem 0
+                border: 2px solid variables.$text-primary
+                border-radius: 5px
+                text-transform: uppercase
+                letter-spacing: 1px
+
+                &:hover
+                    border: 2px solid variables.$gold
+                    color: variables.$gold
+
+                    i
+                        color: variables.$gold
+            
+            .bet-button
+                @include mixins.sm
+                    margin-right: 0
+
+                border: 2px solid variables.$gold
+                background-color: variables.$gold
+                box-shadow: 0px 0px 30px 2px variables.$gold
+                margin-right: 2rem
+
+                &:hover
+                    color: variables.$text-primary
+                    border: 2px solid variables.$gold-hover
+                    background-color: variables.$gold-hover
+                    box-shadow: 0px 0px 30px 2px variables.$gold-hover
+
+                    i
+                        color: variables.$text-primary
+
+                i
+                    color: variables.$text-primary
+
+.about
+    @include mixins.flex-center
+
+    background: variables.$bg-secondary
+    color: variables.$text-primary
+    padding: 2rem
+    padding-top: 1.5rem
+    padding-bottom: 6rem
+    flex-direction: column
+    font-weight: 400
+
+    h2
+        padding-top: 2rem
+        padding-bottom: 1rem
+    
+    &-text
+        @include mixins.container
+
+        @include mixins.xl
+            font-size: 200%
+        @include mixins.md
+            flex-direction: column
+            margin: 1rem
+        @include mixins.sm
+            margin: 0
+        @include mixins.mobile
+            margin-bottom: 0
+
+        color: variables.$text-secondary
+        flex-direction: row
+        display: flex
+        align-items: center
+        margin: 2rem
+        
+        p
+            @include mixins.xl
+                font-size: 70%
+            @include mixins.md
+                margin-inline: 2rem
+            @include mixins.sm
+                margin: 0
+                padding-inline: 0
+
+            font-size: 1.1rem
+            padding: 2rem
+        
+        img
+            @include mixins.lg
+                margin: 0
+            @include mixins.md
+                height: 250px
+                width: auto
+                margin-top: 1rem
+            @include mixins.sm
+                height: 200px
+                width: auto
+            
+            height: 300px
+            width: 300px
+            margin-right: 5rem
+            -webkit-filter: drop-shadow(-5px 5px 3px variables.$bg-primary)
+            filter: drop-shadow(-5px 5px 10px variables.$bg-primary)
+
+        ul
+            @include mixins.flex-center
+
+            height: 90%
+
+            li
+                @include mixins.xl
+                    font-size: 120%
+
+                margin: 0 1rem
+                font-size: 2rem
+
+                i
+
+                    &:hover
+                        color: variables.$gold-hover
+
+.bet
+    @include mixins.container
+
+    margin-bottom: 3rem
+    font-weight: 400
+
+    h2
+        @include mixins.flex-center
+        
+        @include mixins.xl
+            font-size: 200%
+        @include mixins.mobile
+            padding-inline: 1rem
+
+        margin: 3rem
+        margin-top: 1.2rem
+        padding-top: 1rem
+
+    &-houses
+        @include mixins.xl
+            padding-inline: 0
+        @include mixins.sm
+            padding: 0
+        @include mixins.xs
+            grid-template-columns: auto
+            padding-inline: 4rem
+        @include mixins.mobile
+            padding-inline: 1rem
+
+        padding-inline: 6rem
+        display: grid
+        gap: 1rem
+        grid-template-columns: auto auto
+        color: variables.$text-secondary
+        
+        &-item
+            @include mixins.flex-center
+                
+            display: grid
+            background: variables.$bg-secondary
+            border-radius: 10px
+            padding: 1rem
+            grid-template-columns: auto
+
+            img
+                @include mixins.xl
+                    width: 200px
+                    height: 200px
+
+                display: block
+                margin: 1rem auto
+                width: 150px
+                height: 150px
+                border-radius: 25px
+            
+            div
+                display: grid
+                text-align: center
+                border-top: 1px solid variables.$gold-glow
+                
+            h3
+                @include mixins.xl
+                    font-size: 200%
+                @include mixins.sm
+                    font-size: 1.35rem
+                @include mixins.xs
+                    font-size: 1.4rem
+                
+                font-weight: 600
+                font-size: 1.5rem
+                color: variables.$text-primary
+                margin: 1rem
+                text-transform: uppercase
+
+            h4
+                @include mixins.xl
+                    font-size: 200%
+                @include mixins.sm
+                    font-size: 1rem
+                @include mixins.xs
+                    font-size: 1.25rem
+
+                font-size: 1.35rem
+
+            span
+                color: variables.$gold
+                text-transform: uppercase
+
+                i
+                    color: variables.$gold
+                    text-transform: uppercase
+
+            .bonus
+                padding: 1rem
+
+            .spin
+                padding-top: 1rem
+
+            .checks
+                @include mixins.xl
+                    font-size: 200%
+
+                padding: 1rem
+                display: flex
+
+                p
+                    margin: .3rem
+
+                i
+                    font-size: 1.3rem
+                    color: variables.$gold
+
+                .uncheck
+                    color: variables.$disable
+                    i
+                        color: variables.$disable
+                
+            .play
+                @include mixins.xl
+                    font-size: 200%
+
+                font-weight: 600
+                font-size: 1.2rem
+                border: 2px solid variables.$gold
+                background-color: variables.$gold
+                border-radius: 5px
+                padding: .8rem 1.5rem
+                text-transform: uppercase
+                
+                &:hover
+                    color: variables.$text-primary
+                    border: 2px solid variables.$gold-hover
+                    background-color: variables.$gold-hover
+
+.footer
+    border-top: 5px solid variables.$gold
+    font-weight: 200
+    padding: 1rem 0
+    padding-bottom: 0
+    flex-direction: column
+    align-items: center
+
+    &-first-row
+        @include mixins.xl
+            font-size: 135%
+            grid-template-columns: auto auto auto
+        @include mixins.sm
+            font-size: 120%
+            grid-template-columns: auto
+        
+        display: grid
+        grid-template-columns: auto auto auto
+        padding-bottom: 1rem
+        align-items: center
+        justify-items: center
+        border-bottom: 1px solid variables.$gold-glow
+        box-shadow: 0 8px 5px -8px variables.$gold-glow
+
+        div
+            @include mixins.sm
+                padding: 2rem
+
+            border: none
+            padding-inline: 2rem
+            font-size: 80%
+            max-width: 50rem
+
+        h4
+                @include mixins.sm
+                    text-align: center
+                    padding-bottom: .8rem
+
+                font-size: 110%
+                padding-bottom: .4rem
+
+        p
+            @include mixins.sm
+                font-size: 90%
+
+        a
+            &:hover
+                    color: variables.$text-secondary
+
+        .footer-logo
+            @include mixins.sm
+                padding: 1rem
+
+            padding: 0
+
+            img
+                @include mixins.xl
+                    height: 200px
+
+                height: 150px
+
+                &:hover
+                    filter: brightness(1.16) saturate(1.02) 
+        
+        .purpose
+            @include mixins.xl
+                padding: 1rem
+            @include mixins.sm
+                padding: 2rem
+                padding-bottom: 0
+                border: none
+                border-top: 1px solid variables.$gold-glow
+                border-bottom: 1px solid variables.$gold-glow
+                box-shadow: 0 8px 5px -8px variables.$gold-glow, 0 -8px 5px -8px variables.$gold-glow
+            
+            padding-top: 1rem
+            border-inline: 1px solid variables.$gold-glow
+            box-shadow: 8px 0 5px -8px variables.$gold-glow, -8px 0 5px -8px variables.$gold-glow
+
+            h4
+                @include mixins.xl
+                    font-size: 150%
+
+                font-size: 1.2rem
+
+            p
+                @include mixins.xl
+                    font-size: 120%
+
+                font-size: .85rem
+                padding-bottom: 1rem
+            
+            span
+                color: variables.$gold
+        
+        .more-info
+            @include mixins.sm
+                margin: 0
+                padding: 0
+                border: none
+                box-shadow: none
+
+            padding: 1.5rem
+            padding-bottom: 0
+            display: grid
+            grid-template-columns: auto auto
+            justify-content: center
+            border-top: 1px solid variables.$gold-glow
+            box-shadow: inset 0 8px 5px -8px variables.$gold-glow
+
+            img
+                @include mixins.xl
+                    width: 75px
+                    height: auto
+
+                filter: invert(7%) sepia(9%) saturate(543%) hue-rotate(130deg) brightness(105%) contrast(50%)
+
+            .plus-18
+                padding: 1rem
+
+            .secure
+                @include mixins.xl
+                    font-size: 150%
+
+                display: grid
+                grid-template-columns: auto auto
+                margin-left: 2rem
+                color: variables.$text-terciary
+                font-weight: 600
+                padding: 1rem
+
+                img
+                    @include mixins.xl
+                        width: 75px
+                        height: auto
+
+                    width: 50px
+                    height: 50px
+
+                p
+                    font-size: 1rem
+                    user-select: none
+
+        .contact
+            @include mixins.sm
+                padding: 1rem
+            
+            padding: 1rem
+            font-size: 110%
+            
+            &-items
+                @include mixins.sm
+                    display: inline-flex
+                    gap: 1rem
+                    font-size: 85%
+                @include mixins.xs
+                    flex-direction: column
+                    align-items: center
+                    gap: .5rem
+                @include mixins.mobile
+                    font-size: 105%
+
+                padding: 0
+                font-size: 100%
+
+                a
+
+                    &:hover
+                        color: variables.$gold-hover
+
+                        i
+                            color: variables.$gold-hover
+
+    &-last-row
+        @include mixins.xl
+            font-size: 135%
+
+        font-size: 1.1rem
+        padding-top: 1rem
+        display: flex
+        text-align: center
+        align-items: center
+        color: variables.$text-secondary
+        flex-direction: column
+
+        span
+            color: variables.$gold-hover
+
+        img
+            @include mixins.sm
+                width: 650px
+                height: auto
+            @include mixins.xs
+                width: 420px
+                height: auto
+            @include mixins.mobile
+                width: 300px
+                height: auto
+
+            width: 900px
+            height: auto
+            padding-top: 1rem
